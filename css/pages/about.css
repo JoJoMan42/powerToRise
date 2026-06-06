@@ -1,0 +1,246 @@
+/* ==================================
+   ABOUT.CSS — Profile & Story
+   Side-by-side profile, vertical
+   timeline, philosophy pillars
+================================== */
+
+/* PAGE HERO — dark gradient with gold accent line */
+
+.page-hero {
+    padding: 6rem 0 5rem;
+    background: var(--clr-navy-800);
+    border-bottom: 1px solid var(--clr-border);
+    text-align: center;
+    position: relative;
+}
+
+.page-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--clr-gold);
+}
+
+.page-hero .section-tag {
+    margin-inline: auto;
+}
+
+.page-hero h1 {
+    max-width: 800px;
+    margin: 1rem auto;
+    color: var(--clr-white);
+}
+
+.page-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--clr-text-secondary);
+    font-size: 1.1rem;
+}
+
+/* PROFILE — side by side with image */
+
+.about-profile {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--clr-border);
+}
+
+.profile-content h2 {
+    color: var(--clr-white);
+    margin-bottom: 1.5rem;
+}
+
+.profile-content p {
+    color: var(--clr-text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+/* TIMELINE — vertical with dots */
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--clr-navy-400);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 70px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Colored timeline dots */
+.timeline-item:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    left: 16px; top: 6px; width: 18px; height: 18px;
+    border-radius: 50%; border: 3px solid var(--clr-bg);
+    background: var(--clr-gold);
+}
+.timeline-item:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    left: 16px; top: 6px; width: 18px; height: 18px;
+    border-radius: 50%; border: 3px solid var(--clr-bg);
+    background: var(--clr-purple-light);
+}
+.timeline-item:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    left: 16px; top: 6px; width: 18px; height: 18px;
+    border-radius: 50%; border: 3px solid var(--clr-bg);
+    background: var(--clr-teal-light);
+}
+
+.timeline-item h3 {
+    color: var(--clr-white);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.timeline-item p {
+    color: var(--clr-text-secondary);
+    line-height: 1.7;
+}
+
+/* PHILOSOPHY — three pillars, horizontal */
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.philosophy-item {
+    padding: 2.5rem;
+    border: 1px solid var(--clr-border);
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.philosophy-item:hover {
+    background: var(--clr-bg-card);
+}
+
+.philosophy-item:first-child {
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    border-top: 3px solid var(--clr-gold);
+}
+.philosophy-item:nth-child(2) {
+    border-top: 3px solid var(--clr-purple);
+}
+
+.philosophy-item:last-child {
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    border-top: 3px solid var(--clr-rose);
+}
+
+.philosophy-item h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.philosophy-item:nth-child(1) h3 { color: var(--clr-gold); }
+.philosophy-item:nth-child(2) h3 { color: var(--clr-purple-light); }
+.philosophy-item:nth-child(3) h3 { color: var(--clr-rose-light); }
+
+
+.philosophy-item p {
+    color: var(--clr-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* CTA — about page */
+
+.about-cta {
+    padding: var(--section-padding) 0;
+    text-align: center;
+    background: var(--clr-bg-purple);
+    border-top: 1px solid var(--clr-border-purple);
+}
+
+.about-cta h2 {
+    color: var(--clr-white);
+    margin-bottom: 1rem;
+}
+
+.about-cta p {
+    color: var(--clr-text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+    .about-profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .profile-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+    .philosophy-item,
+    .philosophy-item:first-child,
+    .philosophy-item:last-child {
+        border-radius: 0;
+    }
+    .philosophy-item:first-child {
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .philosophy-item:last-child {
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 4rem 0 3.5rem;
+    }
+    .timeline::before { left: 15px; }
+    .timeline-item { padding-left: 50px; }
+    
+    .timeline-item:nth-child(1)::before,
+    .timeline-item:nth-child(2)::before,
+    .timeline-item:nth-child(3)::before { left: 7px; }
+}
+
+@media (max-width: 576px) {
+    .profile-image img { height: 380px; }
+}

@@ -1,0 +1,106 @@
+/* =========================
+   LAYOUT.CSS
+   Structure — Navy Corporate
+========================= */
+
+body {
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    overflow-x: hidden;
+}
+
+/* CONTAINERS */
+
+.container {
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+}
+
+.narrow {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+}
+
+.center { text-align: center; }
+
+/* SECTIONS */
+
+.section {
+    padding: var(--section-padding) 0;
+}
+
+.section-alt {
+    background: var(--clr-bg-section-alt);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    background: rgba(7, 13, 26, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--clr-border);
+    transition: box-shadow 0.3s ease;
+}
+
+.nav-container {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 55px;
+    width: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mobile-toggle {
+    display: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: var(--clr-text);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--clr-border);
+    text-align: center;
+    background: var(--clr-navy-900);
+}
+
+.footer p {
+    color: var(--clr-text-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .section {
+        padding: var(--section-padding-mobile) 0;
+    }
+    .nav {
+        display: none;
+    }
+    .mobile-toggle {
+        display: block;
+    }
+}

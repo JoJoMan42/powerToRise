@@ -1,0 +1,327 @@
+/* =========================
+   COMPONENTS.CSS
+   Shared UI — Navy + Color Accents
+========================= */
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav a {
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: var(--fw-medium);
+    color: var(--clr-text-secondary);
+    transition: color 0.25s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--clr-gold);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-sm);
+    font-weight: var(--fw-semibold);
+    font-size: 0.95rem;
+    transition: var(--transition-normal);
+    cursor: pointer;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary {
+    background: var(--clr-gold);
+    color: var(--clr-navy-900);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--clr-gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-purple {
+    background: var(--clr-purple);
+    color: var(--clr-white);
+    border: none;
+}
+
+.btn-purple:hover {
+    background: var(--clr-purple-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-purple);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--clr-gold);
+    color: var(--clr-gold);
+}
+
+.btn-outline:hover {
+    background: var(--clr-gold);
+    color: var(--clr-navy-900);
+}
+
+.btn-light {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--clr-text);
+}
+
+.btn-light:hover {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.25);
+}
+
+/* =========================
+   SECTION TAG
+========================= */
+
+.section-tag {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-round);
+    background: rgba(200, 162, 77, 0.1);
+    color: var(--clr-gold);
+    font-size: 0.8rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-tag.tag-purple {
+    background: var(--clr-purple-bg);
+    color: var(--clr-purple-light);
+}
+
+.section-tag.tag-teal {
+    background: var(--clr-teal-bg);
+    color: var(--clr-teal-light);
+}
+
+.section-tag.tag-rose {
+    background: rgba(232, 102, 138, 0.1);
+    color: var(--clr-rose-light);
+}
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.section-heading {
+    margin-bottom: 3rem;
+}
+
+.section-heading.center {
+    text-align: center;
+}
+
+.section-heading.center .section-tag {
+    margin-inline: auto;
+}
+
+.section-heading h2 {
+    margin-top: 0.5rem;
+    color: var(--clr-text);
+}
+
+.section-heading p {
+    color: var(--clr-text-secondary);
+    margin-top: 0.75rem;
+    max-width: 600px;
+}
+
+.section-heading.center p {
+    margin-inline: auto;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--clr-border-hover);
+    transform: translateY(-4px);
+}
+
+.card h3 {
+    color: var(--clr-text);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
+}
+
+.card p {
+    color: var(--clr-text-secondary);
+    line-height: 1.7;
+}
+
+/* Card with left border accents */
+.card-accent-gold { border-left: 3px solid var(--clr-gold); }
+.card-accent-purple { border-left: 3px solid var(--clr-purple); }
+.card-accent-teal { border-left: 3px solid var(--clr-teal); }
+.card-accent-rose { border-left: 3px solid var(--clr-rose); }
+
+/* Card with icon number */
+.card .card-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(200, 162, 77, 0.1);
+    color: var(--clr-gold);
+    font-weight: var(--fw-bold);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+/* =========================
+   GRIDS
+========================= */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   LEAD TEXT
+========================= */
+
+.lead-text {
+    font-size: 1.15rem;
+    color: var(--clr-text-secondary);
+    line-height: 1.9;
+    max-width: 700px;
+}
+
+.lead-text.center {
+    text-align: center;
+    margin-inline: auto;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+    height: 1px;
+    background: var(--clr-border);
+    margin: 4rem 0;
+}
+
+/* =========================
+   LINES (Gold/Purple/Teal)
+========================= */
+
+.accent-line {
+    width: 50px;
+    height: 3px;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+}
+
+.accent-line.center {
+    margin-inline: auto;
+}
+
+.line-gold { background: var(--clr-gold); }
+.line-purple { background: var(--clr-purple); }
+.line-teal { background: var(--clr-teal); }
+.line-rose { background: var(--clr-rose); }
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+.mobile-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--clr-navy-800);
+    border-top: 1px solid var(--clr-border);
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    z-index: var(--z-menu);
+}
+
+.mobile-nav.active {
+    transform: translateY(0);
+}
+
+.mobile-nav a {
+    padding: 0.85rem 1rem;
+    font-weight: var(--fw-medium);
+    color: var(--clr-text-secondary);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+    color: var(--clr-gold);
+    background: rgba(200, 162, 77, 0.06);
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+.text-gold { color: var(--clr-gold); }
+.text-purple { color: var(--clr-purple-light); }
+.text-teal { color: var(--clr-teal-light); }
+.text-rose { color: var(--clr-rose-light); }
+.text-muted { color: var(--clr-text-muted); }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-2 { margin-bottom: 2rem; }
