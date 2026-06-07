@@ -1,48 +1,51 @@
 /* ==================================
    ABOUT.CSS — Profile & Story
-   Side-by-side profile, vertical
-   timeline, philosophy pillars
+   Glass cards, glow timeline,
+   cyan accent deep-blue corporate
 ================================== */
 
-/* PAGE HERO — dark gradient with gold accent line */
+/* HERO VISUAL — Founder Quote */
 
-.page-hero {
-    padding: 6rem 0 5rem;
-    background: var(--clr-navy-800);
-    border-bottom: 1px solid var(--clr-border);
-    text-align: center;
+.quote-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-glow);
     position: relative;
+    text-align: left;
 }
 
-.page-hero::after {
-    content: "";
+.quote-card::before {
+    content: "\201C";
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--clr-accent);
+    opacity: 0.15;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--clr-gold);
+    top: 1rem;
+    left: 1rem;
+    font-family: Georgia, serif;
 }
 
-.page-hero .section-tag {
-    margin-inline: auto;
+.quote-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--clr-text);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
-.page-hero h1 {
-    max-width: 800px;
-    margin: 1rem auto;
-    color: var(--clr-white);
-}
-
-.page-hero p {
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--clr-text-secondary);
+.quote-author {
+    color: var(--clr-accent-light);
+    font-weight: var(--fw-semibold);
     font-size: 1.1rem;
 }
 
-/* PROFILE — side by side with image */
+/* PROFILE — glass card bio */
 
 .about-profile {
     display: grid;
@@ -56,7 +59,9 @@
     height: 500px;
     object-fit: cover;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--clr-border);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 212, 255, 0.05);
 }
 
 .profile-content h2 {
@@ -71,7 +76,7 @@
     line-height: 1.9;
 }
 
-/* TIMELINE — vertical with dots */
+/* TIMELINE — glowing cyan dots */
 
 .timeline {
     max-width: 800px;
@@ -86,7 +91,11 @@
     top: 0;
     width: 1px;
     height: 100%;
-    background: var(--clr-navy-400);
+    background: linear-gradient(to bottom,
+        var(--clr-accent),
+        rgba(0, 212, 255, 0.2),
+        transparent
+    );
 }
 
 .timeline-item {
@@ -99,27 +108,28 @@
     margin-bottom: 0;
 }
 
-/* Colored timeline dots */
-.timeline-item:nth-child(1)::before {
+/* Glowing timeline dots — all cyan */
+.timeline-item::before {
     content: "";
     position: absolute;
-    left: 16px; top: 6px; width: 18px; height: 18px;
-    border-radius: 50%; border: 3px solid var(--clr-bg);
-    background: var(--clr-gold);
+    left: 16px;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid var(--clr-bg);
+    background: var(--clr-accent);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
 }
+
 .timeline-item:nth-child(2)::before {
-    content: "";
-    position: absolute;
-    left: 16px; top: 6px; width: 18px; height: 18px;
-    border-radius: 50%; border: 3px solid var(--clr-bg);
     background: var(--clr-purple-light);
+    box-shadow: 0 0 12px rgba(42, 127, 255, 0.4);
 }
+
 .timeline-item:nth-child(3)::before {
-    content: "";
-    position: absolute;
-    left: 16px; top: 6px; width: 18px; height: 18px;
-    border-radius: 50%; border: 3px solid var(--clr-bg);
-    background: var(--clr-teal-light);
+    background: var(--clr-accent-light);
+    box-shadow: 0 0 12px rgba(92, 229, 255, 0.4);
 }
 
 .timeline-item h3 {
@@ -133,7 +143,7 @@
     line-height: 1.7;
 }
 
-/* PHILOSOPHY — three pillars, horizontal */
+/* PHILOSOPHY — glass cards with top glow */
 
 .philosophy-grid {
     display: grid;
@@ -143,18 +153,22 @@
 
 .philosophy-item {
     padding: 2.5rem;
-    border: 1px solid var(--clr-border);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     text-align: center;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 
 .philosophy-item:hover {
-    background: var(--clr-bg-card);
+    border-color: var(--clr-border-hover);
+    box-shadow: var(--shadow-glow);
 }
 
 .philosophy-item:first-child {
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
-    border-top: 3px solid var(--clr-gold);
+    border-top: 3px solid var(--clr-accent);
 }
 .philosophy-item:nth-child(2) {
     border-top: 3px solid var(--clr-purple);
@@ -162,7 +176,7 @@
 
 .philosophy-item:last-child {
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-    border-top: 3px solid var(--clr-rose);
+    border-top: 3px solid var(--clr-accent-light);
 }
 
 .philosophy-item h3 {
@@ -171,9 +185,9 @@
     font-size: 1.25rem;
 }
 
-.philosophy-item:nth-child(1) h3 { color: var(--clr-gold); }
+.philosophy-item:nth-child(1) h3 { color: var(--clr-accent); }
 .philosophy-item:nth-child(2) h3 { color: var(--clr-purple-light); }
-.philosophy-item:nth-child(3) h3 { color: var(--clr-rose-light); }
+.philosophy-item:nth-child(3) h3 { color: var(--clr-accent-light); }
 
 
 .philosophy-item p {
@@ -187,8 +201,26 @@
 .about-cta {
     padding: var(--section-padding) 0;
     text-align: center;
-    background: var(--clr-bg-purple);
-    border-top: 1px solid var(--clr-border-purple);
+    background: linear-gradient(135deg,
+        rgba(14, 34, 64, 0.95),
+        rgba(18, 42, 77, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.about-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .about-cta h2 {
@@ -230,13 +262,10 @@
 }
 
 @media (max-width: 768px) {
-    .page-hero {
-        padding: 4rem 0 3.5rem;
-    }
     .timeline::before { left: 15px; }
     .timeline-item { padding-left: 50px; }
-    
-    .timeline-item:nth-child(1)::before,
+
+    .timeline-item::before,
     .timeline-item:nth-child(2)::before,
     .timeline-item:nth-child(3)::before { left: 7px; }
 }

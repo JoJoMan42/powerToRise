@@ -35,42 +35,40 @@
     <!-- HERO -->
 
     <section class="page-hero">
-        <div class="container">
-            <span class="section-tag tag-purple">Featured Publication</span>
-            <h1>Rewire Your Brain to Achieve Any Goal in Life</h1>
-            <p>
-                A practical guide on mindset, personal growth,
-                and achieving meaningful transformation.
-            </p>
-        </div>
-    </section>
-
-    <!-- BOOK SHOWCASE — cover + details -->
-
-    <section class="book-showcase">
-        <div class="container book-layout">
-
-            <div class="book-cover">
-                <img src="assets/images/book/cover.jpg" alt="Book cover — Rewire Your Brain To Achieve Any Goal In Life">
-            </div>
-
-            <div class="book-details">
-                <span class="section-tag">About the Book</span>
-                <h2>A Roadmap to Personal Growth</h2>
-
+        <canvas class="hero-canvas"></canvas>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag tag-purple">Featured Publication</span>
+                <h1>Rewire Your Brain to Achieve Any Goal in Life</h1>
                 <p>
-                    This book explores how our thoughts, habits, and beliefs
-                    influence our results. Through practical insights and
-                    actionable lessons, readers can learn how to build better
-                    habits, overcome limitations, and move closer to their goals.
+                    A practical guide on mindset, personal growth,
+                    and achieving meaningful transformation.
                 </p>
-
-                <div class="book-buttons">
+                <div class="book-buttons" style="margin-top: 1.5rem; justify-content: flex-start;">
                     <a href="#" class="btn btn-primary">Buy Now</a>
                     <a href="#" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
+            <div class="hero-visual" style="text-align: center;">
+                <div class="book-cover" style="max-width: 340px; margin: 0 auto;">
+                    <img src="assets/images/book/cover.jpg" alt="Book cover — Rewire Your Brain To Achieve Any Goal In Life">
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- BOOK SHOWCASE — details -->
+
+    <section class="book-showcase section">
+        <div class="container narrow center">
+            <span class="section-tag">About the Book</span>
+            <h2 style="margin-bottom: 1rem;">A Roadmap to Personal Growth</h2>
+            <p style="color: var(--clr-text-secondary); font-size: 1.1rem; line-height: 1.8;">
+                This book explores how our thoughts, habits, and beliefs
+                influence our results. Through practical insights and
+                actionable lessons, readers can learn how to build better
+                habits, overcome limitations, and move closer to their goals.
+            </p>
         </div>
     </section>
 
@@ -180,7 +178,7 @@
         <div class="container">
             <h2>Begin Your Growth Journey</h2>
             <p>Discover practical tools for mindset and transformation.</p>
-            <a href="#" class="btn btn-purple">Get the Book</a>
+            <a href="#" class="btn btn-primary">Get the Book</a>
         </div>
     </section>
 

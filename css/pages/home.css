@@ -1,30 +1,61 @@
 /* ==================================
    HOME.CSS — Landing Page
-   Full-bleed hero, stats strip,
-   asymmetric feature grid, quote CTA
+   Deep Blue Corporate with particle
+   canvas, glass cards, cyan glow
 ================================== */
 
-/* HERO — full viewport intro */
+/* HERO — full viewport with particle canvas */
 
 .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: var(--clr-navy-800);
+    background: linear-gradient(135deg,
+        var(--clr-navy-900) 0%,
+        var(--clr-navy-800) 30%,
+        var(--clr-navy-700) 60%,
+        var(--clr-navy-600) 100%
+    );
 }
 
+/* Subtle radial glow */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 212, 255, 0.06) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+/* Bottom wave gradient overlay */
 .hero::after {
     content: "";
     position: absolute;
-    top: 0; right: 0;
-    width: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--clr-bg), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background:
-        linear-gradient(135deg,
-            rgba(200, 162, 77, 0.03) 0%,
-            rgba(139, 108, 207, 0.05) 60%);
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -34,7 +65,7 @@
     gap: 4rem;
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 .hero-content {
@@ -43,26 +74,14 @@
     gap: 1.5rem;
 }
 
-.hero-content .eyebrow {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.35rem 0.9rem;
-    border-radius: var(--radius-round);
-    background: rgba(200, 162, 77, 0.1);
-    color: var(--clr-gold);
-    font-size: 0.8rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
 .hero-content h1 {
     color: var(--clr-white);
     line-height: 1.1;
 }
 
 .hero-content h1 .highlight {
-    color: var(--clr-gold);
+    color: var(--clr-accent);
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
 }
 
 .hero-content > p {
@@ -82,16 +101,36 @@
     height: 580px;
     object-fit: cover;
     border-radius: var(--radius-xl);
-    border: 1px solid var(--clr-border);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(0, 212, 255, 0.05);
 }
 
-/* STATS STRIP — horizontal numbers bar (Purple tint) */
+/* STATS STRIP — glowing counters */
 
 .stats-strip {
-    background: var(--clr-bg-purple);
-    border-top: 1px solid var(--clr-border-purple);
-    border-bottom: 1px solid var(--clr-border-purple);
-    padding: 3rem 0;
+    background: linear-gradient(135deg,
+        rgba(14, 34, 64, 0.95),
+        rgba(18, 42, 77, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+    padding: 3.5rem 0;
+    position: relative;
+}
+
+.stats-strip::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.3),
+        transparent
+    );
 }
 
 .stats-grid {
@@ -103,12 +142,13 @@
 
 .stat-item .stat-number {
     display: block;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: var(--fw-extrabold);
-    color: var(--clr-purple-light);
+    color: var(--clr-accent);
     font-family: var(--font-heading);
     line-height: 1;
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 .stat-item .stat-label {
@@ -122,6 +162,7 @@
 
 .purpose {
     padding: var(--section-padding) 0;
+    position: relative;
 }
 
 .purpose-inner {
@@ -141,11 +182,12 @@
     line-height: 1.9;
 }
 
-/* FEATURES — asymmetric 2-column cards */
+/* FEATURES — glassmorphic cards */
 
 .features-section {
     padding: var(--section-padding) 0;
     background: var(--clr-bg-section-alt);
+    position: relative;
 }
 
 .features-grid {
@@ -155,15 +197,18 @@
 }
 
 .feature-card {
-    background: var(--clr-bg-card);
-    border: 1px solid var(--clr-border);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
-    transition: border-color 0.3s ease;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
     border-color: var(--clr-border-hover);
+    box-shadow: var(--shadow-glow);
 }
 
 /* First card spans full width */
@@ -173,14 +218,14 @@
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
-    border-left: 3px solid var(--clr-gold);
+    border-left: 3px solid var(--clr-accent);
 }
 
 .feature-card:nth-child(2) {
-    border-left: 3px solid var(--clr-teal);
+    border-left: 3px solid var(--clr-purple);
 }
 .feature-card:nth-child(3) {
-    border-left: 3px solid var(--clr-rose);
+    border-left: 3px solid var(--clr-accent-light);
 }
 
 .feature-card .feature-icon {
@@ -204,26 +249,40 @@
     align-items: center;
     gap: 0.5rem;
     margin-top: 1.25rem;
-    color: var(--clr-gold);
+    color: var(--clr-accent);
     font-weight: var(--fw-semibold);
     font-size: 0.9rem;
-    transition: gap 0.25s ease;
+    transition: color 0.25s ease;
 }
 
-.feature-card:nth-child(2) .feature-link { color: var(--clr-teal-light); }
-.feature-card:nth-child(3) .feature-link { color: var(--clr-rose-light); }
+.feature-card:nth-child(2) .feature-link { color: var(--clr-purple-light); }
+.feature-card:nth-child(3) .feature-link { color: var(--clr-accent-light); }
 
-.feature-card .feature-link:hover {
-    gap: 0.75rem;
-}
-
-/* QUOTE CTA — full-width banner (Teal tint) */
+/* QUOTE CTA — blue gradient banner */
 
 .quote-cta {
     padding: 5rem 0;
-    background: var(--clr-bg-teal);
-    border-top: 1px solid var(--clr-border-teal);
-    border-bottom: 1px solid var(--clr-border-teal);
+    background: linear-gradient(135deg,
+        rgba(10, 26, 48, 0.95),
+        rgba(14, 34, 64, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.quote-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .quote-inner {
@@ -244,7 +303,7 @@
 
 .quote-inner cite {
     display: block;
-    color: var(--clr-teal-light);
+    color: var(--clr-accent);
     font-style: normal;
     font-weight: var(--fw-semibold);
 }
@@ -254,6 +313,7 @@
 .home-cta {
     padding: var(--section-padding) 0;
     text-align: center;
+    position: relative;
 }
 
 .home-cta h2 {

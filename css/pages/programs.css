@@ -1,10 +1,42 @@
 /* ==================================
-   PROGRAMS.CSS — Services
-   Tabbed feel with numbered steps,
-   horizontal service rows
+   PROGRAMS.CSS — Services Layout
+   Alternating sections, 
+   glow steps, deep-blue corporate
 ================================== */
 
-/* SERVICE ROWS — alternating layout */
+/* HERO VISUAL — Program Badges */
+
+.program-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.badge-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1rem;
+    text-align: center;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-glow);
+    font-weight: var(--fw-semibold);
+    color: var(--clr-text);
+}
+
+.badge-item .icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.badge-item:nth-child(1) { box-shadow: 0 0 20px rgba(0, 212, 255, 0.15); border-color: rgba(0, 212, 255, 0.3); }
+.badge-item:nth-child(2) { box-shadow: 0 0 20px rgba(42, 127, 255, 0.15); border-color: rgba(42, 127, 255, 0.3); }
+.badge-item:nth-child(3) { box-shadow: 0 0 20px rgba(92, 229, 255, 0.15); border-color: rgba(92, 229, 255, 0.3); }
+.badge-item:nth-child(4) { box-shadow: 0 0 20px rgba(0, 212, 255, 0.15); border-color: rgba(0, 212, 255, 0.3); }
+
+/* SERVICE ROW — alternating text/image */
 
 .service-row {
     display: grid;
@@ -26,7 +58,16 @@
     height: 400px;
     object-fit: cover;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--clr-border);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 212, 255, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-image img:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(0, 212, 255, 0.1);
 }
 
 .service-content {
@@ -70,28 +111,45 @@
 
 .service-list li::before {
     content: "—";
-    color: var(--clr-gold);
+    color: var(--clr-accent);
     font-weight: var(--fw-bold);
     flex-shrink: 0;
 }
 
-/* Specific list colors based on section */
-.section:nth-child(2) .service-list li::before { color: var(--clr-gold); }
-.section:nth-child(3) .service-list li::before { color: var(--clr-teal-light); }
-.section:nth-child(4) .service-list li::before { color: var(--clr-purple-light); }
-.section:nth-child(5) .service-list li::before { color: var(--clr-rose-light); }
+/* All list markers unified to cyan */
+.section .service-list li::before {
+    color: var(--clr-accent);
+}
 
 .service-list li:hover {
     color: var(--clr-text);
 }
 
-/* PROCESS STEPS — numbered horizontal */
+/* PROCESS STEPS — numbered horizontal with glow */
 
 .process-section {
     padding: var(--section-padding) 0;
-    background: var(--clr-bg-purple);
-    border-top: 1px solid var(--clr-border-purple);
-    border-bottom: 1px solid var(--clr-border-purple);
+    background: linear-gradient(135deg,
+        rgba(14, 34, 64, 0.95),
+        rgba(18, 42, 77, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.process-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .process-steps {
@@ -101,7 +159,7 @@
     position: relative;
 }
 
-/* connecting line */
+/* Connecting glow line */
 .process-steps::before {
     content: "";
     position: absolute;
@@ -109,7 +167,13 @@
     left: 10%;
     right: 10%;
     height: 1px;
-    background: var(--clr-navy-400);
+    background: linear-gradient(90deg,
+        var(--clr-accent),
+        var(--clr-purple),
+        var(--clr-accent-light),
+        var(--clr-accent)
+    );
+    opacity: 0.3;
     z-index: 0;
 }
 
@@ -127,20 +191,26 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--clr-bg-card);
-    border: 2px solid var(--clr-gold);
-    color: var(--clr-gold);
+    background: var(--clr-bg-card-solid);
+    border: 2px solid var(--clr-accent);
+    color: var(--clr-accent);
     font-size: 1.25rem;
     font-weight: var(--fw-bold);
     font-family: var(--font-heading);
     margin-bottom: 1.5rem;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.step:hover .step-number {
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
 }
 
 /* Colored step numbers */
-.step:nth-child(1) .step-number { border-color: var(--clr-gold); color: var(--clr-gold); }
-.step:nth-child(2) .step-number { border-color: var(--clr-teal); color: var(--clr-teal-light); }
-.step:nth-child(3) .step-number { border-color: var(--clr-purple); color: var(--clr-purple-light); }
-.step:nth-child(4) .step-number { border-color: var(--clr-rose); color: var(--clr-rose-light); }
+.step:nth-child(1) .step-number { border-color: var(--clr-accent); color: var(--clr-accent); }
+.step:nth-child(2) .step-number { border-color: var(--clr-purple); color: var(--clr-purple-light); box-shadow: 0 0 15px rgba(42, 127, 255, 0.2); }
+.step:nth-child(3) .step-number { border-color: var(--clr-accent-light); color: var(--clr-accent-light); box-shadow: 0 0 15px rgba(92, 229, 255, 0.2); }
+.step:nth-child(4) .step-number { border-color: var(--clr-accent); color: var(--clr-accent); }
 
 .step h3 {
     color: var(--clr-white);

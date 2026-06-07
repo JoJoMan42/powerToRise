@@ -1,7 +1,7 @@
 /* ==================================
    BOOK.CSS — Editorial Layout
-   Magazine-style showcase,
-   chapter previews, pull quote
+   Glass showcase, glow chapters,
+   deep-blue corporate theme
 ================================== */
 
 /* BOOK SHOWCASE — large split */
@@ -20,8 +20,15 @@
 .book-cover img {
     width: 100%;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--clr-border);
-    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5),
+                0 0 50px rgba(0, 212, 255, 0.08);
+    transition: box-shadow 0.4s ease;
+}
+
+.book-cover img:hover {
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5),
+                0 0 70px rgba(0, 212, 255, 0.15);
 }
 
 .book-details {
@@ -47,13 +54,31 @@
     margin-top: 0.5rem;
 }
 
-/* PULL QUOTE — editorial style (Teal Accent) */
+/* PULL QUOTE — editorial style (Cyan Accent) */
 
 .pull-quote {
     padding: 5rem 0;
-    background: var(--clr-bg-teal);
-    border-top: 1px solid var(--clr-border-teal);
-    border-bottom: 1px solid var(--clr-border-teal);
+    background: linear-gradient(135deg,
+        rgba(10, 26, 48, 0.95),
+        rgba(14, 34, 64, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.pull-quote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .pull-quote-inner {
@@ -67,8 +92,8 @@
     content: "\201C";
     font-size: 6rem;
     line-height: 1;
-    color: var(--clr-teal);
-    opacity: 0.3;
+    color: var(--clr-accent);
+    opacity: 0.2;
     position: absolute;
     top: -2.5rem;
     left: 50%;
@@ -87,7 +112,7 @@
     z-index: 1;
 }
 
-/* CHAPTER PREVIEW — numbered list */
+/* CHAPTER PREVIEW — numbered list with glow */
 
 .chapters-section {
     padding: var(--section-padding) 0;
@@ -108,6 +133,11 @@
     align-items: start;
     padding: 1.75rem 0;
     border-bottom: 1px solid var(--clr-border);
+    transition: border-color 0.3s ease;
+}
+
+.chapter-item:hover {
+    border-bottom-color: rgba(0, 212, 255, 0.2);
 }
 
 .chapter-item:last-child {
@@ -121,11 +151,11 @@
     opacity: 0.8;
 }
 
-/* Colored chapter numbers */
-.chapter-item:nth-child(1) .chapter-num { color: var(--clr-gold); }
+/* Colored chapter numbers — cyan family */
+.chapter-item:nth-child(1) .chapter-num { color: var(--clr-accent); }
 .chapter-item:nth-child(2) .chapter-num { color: var(--clr-purple-light); }
-.chapter-item:nth-child(3) .chapter-num { color: var(--clr-teal-light); }
-.chapter-item:nth-child(4) .chapter-num { color: var(--clr-rose-light); }
+.chapter-item:nth-child(3) .chapter-num { color: var(--clr-accent-light); }
+.chapter-item:nth-child(4) .chapter-num { color: var(--clr-accent); }
 
 .chapter-item h3 {
     color: var(--clr-white);
@@ -140,7 +170,7 @@
     line-height: 1.6;
 }
 
-/* AUDIENCE — horizontal badges */
+/* AUDIENCE — glass cards */
 
 .audience-section {
     padding: var(--section-padding) 0;
@@ -155,14 +185,17 @@
 .audience-item {
     text-align: center;
     padding: 2rem 1.5rem;
-    background: var(--clr-bg-card);
-    border: 1px solid var(--clr-border);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    transition: border-color 0.3s ease;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .audience-item:hover {
     border-color: var(--clr-border-hover);
+    box-shadow: var(--shadow-glow);
 }
 
 .audience-item h3 {
@@ -171,11 +204,11 @@
     font-family: var(--font-heading);
 }
 
-/* Colored audience headings */
-.audience-item:nth-child(1) h3 { color: var(--clr-gold); }
-.audience-item:nth-child(2) h3 { color: var(--clr-teal-light); }
-.audience-item:nth-child(3) h3 { color: var(--clr-purple-light); }
-.audience-item:nth-child(4) h3 { color: var(--clr-rose-light); }
+/* Colored audience headings — cyan family */
+.audience-item:nth-child(1) h3 { color: var(--clr-accent); }
+.audience-item:nth-child(2) h3 { color: var(--clr-purple-light); }
+.audience-item:nth-child(3) h3 { color: var(--clr-accent-light); }
+.audience-item:nth-child(4) h3 { color: var(--clr-accent); }
 
 .audience-item p {
     color: var(--clr-text-muted);
@@ -188,8 +221,26 @@
 .book-cta {
     padding: var(--section-padding) 0;
     text-align: center;
-    background: var(--clr-bg-purple);
-    border-top: 1px solid var(--clr-border-purple);
+    background: linear-gradient(135deg,
+        rgba(14, 34, 64, 0.95),
+        rgba(18, 42, 77, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.book-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .book-cta h2 {

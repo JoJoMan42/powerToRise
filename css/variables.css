@@ -1,6 +1,6 @@
 /* =========================
    VARIABLES.CSS
-   Design System — Navy + Colour
+   Design System — Corporate Blue
 ========================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
@@ -8,66 +8,85 @@
 :root {
 
     /* =====================
-       CORE NAVY PALETTE
+       CORE BLUE PALETTE — Medium Blue
     ===================== */
 
-    --clr-navy-900: #070d1a;
-    --clr-navy-800: #0a1628;
-    --clr-navy-700: #0f1f36;
-    --clr-navy-600: #152744;
-    --clr-navy-500: #1b3052;
-    --clr-navy-400: #243d63;
-    --clr-navy-300: #3a5a8a;
-    --clr-navy-200: #5a7eb0;
-    --clr-navy-100: #8aaad6;
+    --clr-navy-900: #0e2240;
+    --clr-navy-800: #122a4d;
+    --clr-navy-700: #17335c;
+    --clr-navy-600: #1c3d6a;
+    --clr-navy-500: #224878;
+    --clr-navy-400: #2d5a8e;
+    --clr-navy-300: #3d72aa;
+    --clr-navy-200: #5590c4;
+    --clr-navy-100: #75aede;
 
     /* =====================
-       ACCENT COLORS
+       ACCENT — CYAN / ICE BLUE
     ===================== */
 
-    --clr-gold: #c8a24d;
-    --clr-gold-light: #dbb96a;
-    --clr-gold-dark: #a8842f;
+    --clr-accent: #00d4ff;
+    --clr-accent-light: #5ce5ff;
+    --clr-accent-dark: #009ec7;
+    --clr-accent-bg: rgba(0, 212, 255, 0.08);
+    --clr-accent-glow: rgba(0, 212, 255, 0.15);
 
-    --clr-purple: #8b6ccf;
-    --clr-purple-light: #a78bfa;
-    --clr-purple-dark: #6d4db8;
-    --clr-purple-bg: rgba(139, 108, 207, 0.06);
+    --clr-accent-secondary: #0088cc;
+    --clr-accent-tertiary: #66e0ff;
 
-    --clr-teal: #2dd4bf;
-    --clr-teal-light: #5eead4;
-    --clr-teal-dark: #14b8a6;
-    --clr-teal-bg: rgba(45, 212, 191, 0.06);
+    /* Legacy aliases */
+    --clr-gold: #00d4ff;
+    --clr-gold-light: #5ce5ff;
+    --clr-gold-dark: #009ec7;
 
-    --clr-blue: #4a90d9;
-    --clr-blue-light: #6aabef;
+    --clr-purple: #2a7fff;
+    --clr-purple-light: #5ca0ff;
+    --clr-purple-dark: #1a5fcc;
+    --clr-purple-bg: rgba(42, 127, 255, 0.06);
 
-    --clr-rose: #e8668a;
-    --clr-rose-light: #f09aaf;
+    --clr-teal: #00d4ff;
+    --clr-teal-light: #5ce5ff;
+    --clr-teal-dark: #009ec7;
+    --clr-teal-bg: rgba(0, 212, 255, 0.06);
+
+    --clr-blue: #2a7fff;
+    --clr-blue-light: #5ca0ff;
+
+    --clr-rose: #5ce5ff;
+    --clr-rose-light: #99edff;
 
     /* =====================
        FUNCTIONAL COLORS
     ===================== */
 
-    --clr-bg: #070d1a;
-    --clr-bg-card: #0f1f36;
-    --clr-bg-card-hover: #152744;
-    --clr-bg-elevated: #1b3052;
-    --clr-bg-section-alt: #0a1628;
+    --clr-bg: #0e2240;
+    --clr-bg-card: rgba(18, 42, 77, 0.6);
+    --clr-bg-card-hover: rgba(23, 51, 92, 0.7);
+    --clr-bg-card-solid: #17335c;
+    --clr-bg-elevated: #1c3d6a;
+    --clr-bg-section-alt: #122a4d;
 
-    --clr-bg-purple: #0d0f1f;
-    --clr-bg-teal: #071a1a;
+    --clr-bg-purple: #112640;
+    --clr-bg-teal: #102545;
 
-    --clr-text: #e8edf5;
-    --clr-text-secondary: #a0b4cc;
-    --clr-text-muted: #6b82a0;
+    --clr-text: #e4edf8;
+    --clr-text-secondary: #94b8d8;
+    --clr-text-muted: #6890b0;
 
-    --clr-border: rgba(90, 126, 176, 0.15);
-    --clr-border-hover: rgba(200, 162, 77, 0.3);
-    --clr-border-purple: rgba(139, 108, 207, 0.2);
-    --clr-border-teal: rgba(45, 212, 191, 0.2);
+    --clr-border: rgba(45, 90, 142, 0.3);
+    --clr-border-hover: rgba(0, 212, 255, 0.35);
+    --clr-border-purple: rgba(42, 127, 255, 0.18);
+    --clr-border-teal: rgba(0, 212, 255, 0.18);
 
     --clr-white: #ffffff;
+
+    /* =====================
+       GLASS EFFECT
+    ===================== */
+
+    --glass-bg: rgba(18, 42, 77, 0.45);
+    --glass-border: rgba(0, 212, 255, 0.12);
+    --glass-blur: 12px;
 
     /* =====================
        TYPOGRAPHY
@@ -93,17 +112,19 @@
     --section-padding: 6rem;
     --section-padding-mobile: 4rem;
 
-    --radius-sm: 6px;
-    --radius-md: 10px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
     --radius-round: 999px;
 
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
-    --shadow-gold: 0 4px 20px rgba(200, 162, 77, 0.15);
-    --shadow-purple: 0 4px 20px rgba(139, 108, 207, 0.15);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.35);
+    --shadow-glow: 0 4px 30px rgba(0, 212, 255, 0.12);
+    --shadow-glow-strong: 0 0 40px rgba(0, 212, 255, 0.2);
+    --shadow-gold: 0 4px 20px rgba(0, 212, 255, 0.15);
+    --shadow-purple: 0 4px 20px rgba(42, 127, 255, 0.15);
 
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;

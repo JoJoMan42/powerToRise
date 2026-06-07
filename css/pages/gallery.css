@@ -1,8 +1,39 @@
 /* ==================================
    GALLERY.CSS — Photo Showcase
-   Masonry gallery with category labels,
-   very visual — no cards or text blocks
+   Masonry with glow borders,
+   deep-blue corporate theme
 ================================== */
+
+/* HERO VISUAL — Gallery Overlap */
+
+.hero-gallery {
+    padding-bottom: 8rem;
+}
+
+.hero-content-center {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.mega-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.gallery-category:first-of-type {
+    margin-top: -6rem;
+    position: relative;
+    z-index: 10;
+    padding-top: 0;
+}
 
 /* GALLERY SECTION */
 
@@ -31,14 +62,14 @@
     height: 260px;
     object-fit: cover;
     border-radius: var(--radius-md);
-    border: 1px solid var(--clr-border);
+    border: 1px solid rgba(0, 212, 255, 0.08);
     cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .masonry-gallery img:hover {
-    opacity: 0.85;
-    transform: scale(1.02);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.12);
 }
 
 /* Varied heights for visual interest */
@@ -52,8 +83,26 @@
 .gallery-cta {
     padding: var(--section-padding) 0;
     text-align: center;
-    background: var(--clr-navy-800);
-    border-top: 1px solid var(--clr-border);
+    background: linear-gradient(135deg,
+        rgba(14, 34, 64, 0.95),
+        rgba(18, 42, 77, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.gallery-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .gallery-cta h2 {

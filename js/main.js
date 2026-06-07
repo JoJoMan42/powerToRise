@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log(
         "%cPowerToRise Website Loaded",
-        "color: #0ea5e9; font-weight: bold; font-size: 14px;"
+        "color: #00d4ff; font-weight: bold; font-size: 14px; text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);"
     );
 
     // Smooth scroll for anchor links

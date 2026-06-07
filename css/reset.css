@@ -1,6 +1,7 @@
 /* =========================
    RESET.CSS
    Base Reset + Typography
+   Deep Blue Corporate Theme
 ========================= */
 
 *,
@@ -95,14 +96,14 @@ textarea {
 /* ACCESSIBILITY */
 
 :focus-visible {
-    outline: 2px solid var(--clr-gold);
+    outline: 2px solid var(--clr-accent);
     outline-offset: 3px;
 }
 
 /* SELECTION */
 
 ::selection {
-    background: rgba(200, 162, 77, 0.3);
+    background: rgba(0, 212, 255, 0.25);
     color: var(--clr-white);
 }
 
@@ -122,5 +123,5 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--clr-navy-300);
+    background: var(--clr-accent-dark);
 }

@@ -1,8 +1,49 @@
 /* ==================================
-   CONTACT.CSS — Dark Form Layout
-   Split contact with dark form,
-   FAQ accordion-style
+   CONTACT.CSS — Reach Out
+   Glassmorphic form, detail lists,
+   cyan corporate deep-blue theme
 ================================== */
+
+/* HERO VISUAL — Contact Cards */
+
+.contact-quick-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quick-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-glow);
+    transition: border-color var(--transition-fast);
+}
+
+.quick-card:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.quick-card .icon {
+    font-size: 2rem;
+}
+
+.quick-card h4 {
+    font-size: 1.1rem;
+    color: var(--clr-white);
+    margin-bottom: 0.2rem;
+}
+
+.quick-card p {
+    color: var(--clr-text-secondary);
+    font-size: 0.95rem;
+}
 
 /* CONTACT LAYOUT */
 
@@ -51,20 +92,25 @@
     border-radius: 50%;
     font-size: 1.1rem;
     flex-shrink: 0;
+    background: var(--clr-accent-bg);
+    color: var(--clr-accent);
+    border: 1px solid rgba(0, 212, 255, 0.1);
 }
 
-/* Colored icons */
+/* Different icon accents */
 .contact-detail:nth-child(3) .detail-icon {
-    background: rgba(200, 162, 77, 0.08);
-    color: var(--clr-gold);
+    background: var(--clr-accent-bg);
+    color: var(--clr-accent);
 }
 .contact-detail:nth-child(4) .detail-icon {
-    background: var(--clr-purple-bg);
+    background: rgba(42, 127, 255, 0.08);
     color: var(--clr-purple-light);
+    border-color: rgba(42, 127, 255, 0.1);
 }
 .contact-detail:nth-child(5) .detail-icon {
-    background: var(--clr-teal-bg);
-    color: var(--clr-teal-light);
+    background: rgba(92, 229, 255, 0.06);
+    color: var(--clr-accent-light);
+    border-color: rgba(92, 229, 255, 0.1);
 }
 
 .contact-detail .detail-label {
@@ -80,13 +126,15 @@
     font-weight: var(--fw-medium);
 }
 
-/* RIGHT — form */
+/* RIGHT — glass form */
 
 .contact-form-wrapper {
-    background: var(--clr-bg-card);
-    border: 1px solid var(--clr-border);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 
 .contact-form {
@@ -122,13 +170,14 @@
     border-radius: var(--radius-sm);
     font-size: 1rem;
     color: var(--clr-text);
-    background: var(--clr-bg);
-    transition: border-color 0.25s ease;
+    background: rgba(14, 34, 64, 0.6);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--clr-gold);
+    border-color: var(--clr-accent);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
     outline: none;
 }
 
@@ -157,6 +206,11 @@
 .faq-item {
     padding: 1.75rem 0;
     border-bottom: 1px solid var(--clr-border);
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    border-bottom-color: rgba(0, 212, 255, 0.2);
 }
 
 .faq-item:last-child {
@@ -164,7 +218,7 @@
 }
 
 .faq-item h3 {
-    color: var(--clr-teal-light);
+    color: var(--clr-accent);
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-family: var(--font-heading);
@@ -180,8 +234,26 @@
 .contact-cta-bottom {
     padding: 4rem 0;
     text-align: center;
-    background: var(--clr-bg-teal);
-    border-top: 1px solid var(--clr-border-teal);
+    background: linear-gradient(135deg,
+        rgba(10, 26, 48, 0.95),
+        rgba(14, 34, 64, 0.95)
+    );
+    border-top: 1px solid rgba(0, 212, 255, 0.08);
+    position: relative;
+}
+
+.contact-cta-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.25),
+        transparent
+    );
 }
 
 .contact-cta-bottom h2 {

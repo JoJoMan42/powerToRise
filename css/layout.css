@@ -1,6 +1,6 @@
 /* =========================
    LAYOUT.CSS
-   Structure — Navy Corporate
+   Structure — Deep Blue Corporate
 ========================= */
 
 body {
@@ -27,6 +27,7 @@ body {
 
 .section {
     padding: var(--section-padding) 0;
+    position: relative;
 }
 
 .section-alt {
@@ -34,18 +35,23 @@ body {
 }
 
 /* =========================
-   HEADER
+   HEADER — Frosted glass
 ========================= */
 
 .header {
     position: sticky;
     top: 0;
     z-index: var(--z-header);
-    background: rgba(7, 13, 26, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--clr-border);
-    transition: box-shadow 0.3s ease;
+    background: rgba(14, 34, 64, 0.85); /* Lightened to match --clr-navy-900 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    border-bottom-color: rgba(0, 212, 255, 0.15);
 }
 
 .nav-container {
@@ -74,14 +80,29 @@ body {
 }
 
 /* =========================
-   FOOTER
+   FOOTER — Deep blue with glow line
 ========================= */
 
 .footer {
     padding: 2.5rem 0;
-    border-top: 1px solid var(--clr-border);
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
     text-align: center;
     background: var(--clr-navy-900);
+    position: relative;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 212, 255, 0.3),
+        transparent
+    );
 }
 
 .footer p {
